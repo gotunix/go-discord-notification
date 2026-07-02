@@ -1,0 +1,40 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.suo
+*.user
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.code-workspace
+
+# Go Build Artifacts and Binaries
+/bin/
+/dist/
+/bot-binary
+/go-discord-notification
+/go-discord-notifications
+/bot_test
+*test
+*.exe
+*.exe.all
+*.test
+*.prof
+*.out
+/coverage.txt
+
+# Ansible / Provisioning
+.ansible/
+
+# Local configuration and credentials
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Application local state and cache
+/cache/

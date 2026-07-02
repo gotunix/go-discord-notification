@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  go-discord-notifications:
+    build: .
+    container_name: go-discord-notifications
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    env_file:
+      - .env
+    environment:
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8765
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}

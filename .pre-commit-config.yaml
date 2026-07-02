@@ -1,0 +1,48 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+
+  - repo: local
+    hooks:
+      - id: go-fmt
+        name: go-fmt
+        entry: gofmt -w -s
+        language: system
+        files: \.go$
+
+      - id: go-imports
+        name: go-imports
+        entry: goimports -w
+        language: system
+        files: \.go$
+
+      - id: go-mod-tidy
+        name: go-mod-tidy
+        entry: bash -c 'cd src && go mod tidy'
+        language: system
+        files: (go\.mod|go\.sum|\.go)$
+        pass_filenames: false
+
+      - id: golangci-lint
+        name: golangci-lint
+        entry: bash -c 'cd src && golangci-lint run'
+        language: system
+        files: \.go$
+        pass_filenames: false
+
+      - id: go-test
+        name: go-test
+        entry: bash -c 'cd src && go test ./...'
+        language: system
+        files: \.go$
+        pass_filenames: false
