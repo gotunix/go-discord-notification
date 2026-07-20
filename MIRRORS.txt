@@ -1,0 +1,2 @@
+# Main GitHub Mirror
+git@github.com:/gotunix/${REPO_NAME}.git
